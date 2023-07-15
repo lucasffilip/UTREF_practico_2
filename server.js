@@ -99,10 +99,10 @@ app.get("/prendas/nombre/:nombre", async (req, res) => {
   }
 });
 
-// Ruta para obtener prendas por categoría o parte de la categoría
+// Ruta para obtener prendas por categoría
 app.get("/prendas/categoria/:categoria", async (req, res) => {
   const prendasQuery = req.params.categoria;
-  let prendasCategoria = RegExp(prendasQuery, "i")
+  let prendasCategoria = RegExp('^'+prendasQuery+'$', "i")
   try {
     // Conexión a la base de datos
     const client = await connectToDB();
