@@ -165,7 +165,7 @@ app.patch("/prendas/:codigo", async (req, res) => {
     const codiPrenda = parseInt(req.params.codigo);
     const nuevosDatos = req.body;
     try {
-        if (!nuevosDatos || typeof nuevosDatos.precio !== 'number') {       // Valida también que el atributo "precio" exista en el body recibido
+        if (!nuevosDatos || typeof nuevosDatos.precio !== 'number') {       // Valida que el atributo "precio" exista en el body recibido y que tenga un valor numérico.
             res.status(400).send("Error en el formato de datos a crear.");
         }
         else {
